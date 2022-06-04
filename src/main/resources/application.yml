@@ -1,0 +1,36 @@
+server:
+  port: 8081
+
+spring:
+  data:
+    mongodb:
+      database: productsDB
+    host: localhost
+    port: 27017
+    uri: mongodb://localhost:27017/productsDB
+
+springdoc:
+  api-docs:
+    groups:
+      enabled: true
+  swagger-ui:
+    path: /docs
+    tags-sorter: method
+    operations-sorter: alpha
+  use-fqn: true
+
+management:
+  health:
+    circuitbreakers:
+      enabled: false
+  endpoints:
+    enabled-by-defaults: false
+    web:
+      exposure:
+        include: health,prometheus
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+    prometheus:
+      enabled: true
